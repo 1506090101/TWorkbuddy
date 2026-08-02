@@ -1,0 +1,19 @@
+# ── Local agent / IDE state (machine-specific, not project source) ──
+.workbuddy/
+
+# ── Build artifacts & dependencies (also covered per-subproject) ──
+node_modules/
+out/
+dist/
+build/
+
+# ── Logs & OS junk ──
+*.log
+.DS_Store
+Thumbs.db
+
+# ── Secrets ──
+.env
+.env.*
+*.pem
+*.key

@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "outDir": "./out/tsc-web",
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "noEmit": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["renderer/src/*"],
+      "@components/*": ["renderer/src/components/*"],
+      "@stores/*": ["renderer/src/stores/*"],
+      "@hooks/*": ["renderer/src/hooks/*"],
+      "@i18n": ["renderer/src/i18n/index.ts"],
+      "@i18n/*": ["renderer/src/i18n/*"],
+      "@types/*": ["renderer/src/types/*"],
+      "@utils/*": ["renderer/src/utils/*"],
+      "@shared/*": ["shared/*"]
+    }
+  },
+  "include": [
+    "renderer/src/**/*.ts",
+    "renderer/src/**/*.tsx",
+    "shared/**/*.ts"
+  ]
+}
