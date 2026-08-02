@@ -1,5 +1,7 @@
 # Agent Buddy
 
+![CI](https://github.com/1506090101/TWorkbuddy/actions/workflows/ci.yml/badge.svg)
+
 面向开发任务的 **Electron Agent Workbuddy**。围绕项目建立可恢复的 `WorkSession`，组织 Agent、模型、文件、插件与 `Goal`；Agent 的工具调用、权限、文件变更、测试和结果必须**可见、可审查、可停止、可继续**。
 
 > 需求权威顺序：`agent-workbuddy-v2.md` → `agent-buddy-prd.md` / `agent-buddy-design.md` → `features/` → `AGENTS.md`。
@@ -75,3 +77,7 @@ npm run dev
 - 设计规范：`agent-buddy-design.md`
 - 功能拆分：`features/`（按 `phase-0` ~ `phase-7`）
 - 开发规范：`AGENTS.md`、开发指南：`DEVELOPMENT.md`
+
+## License
+
+[MIT](./LICENSE) © 2026 The Agent Buddy Authors
