@@ -281,7 +281,7 @@
   /* ===== Overlays / Modals / Drawers / Palette / Toast ===== */
   .overlay{position:fixed;inset:0;background:rgba(15,20,30,.42);display:none;align-items:center;justify-content:center;z-index:50;backdrop-filter:blur(2px);}
   .overlay.open{display:flex;}
-  .modal{width:580px;max-width:92vw;max-height:86vh;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);display:flex;flex-direction:column;overflow:hidden;}
+  .modal{width:740px;max-width:94vw;max-height:88vh;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);display:flex;flex-direction:column;overflow:hidden;}
   .modal-head{display:flex;align-items:center;gap:10px;padding:15px 18px;border-bottom:1px solid var(--border);}
   .modal-head h3{font-size:15px;font-weight:700;letter-spacing:-.2px;}
   .modal-head .sub{font-size:12px;color:var(--text-2);}
@@ -302,6 +302,61 @@
   .kbd{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:11px;color:var(--text-1);background:var(--bg-5);border:1px solid var(--border);border-radius:6px;padding:2px 7px;}
   .shortcut{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--divider);font-size:12.5px;}
   .shortcut:last-child{border-bottom:none;}
+
+  /* Settings form controls */
+  .inp,.sel{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-1);color:var(--text-0);font-size:12.5px;font-family:inherit;box-sizing:border-box;}
+  .inp:focus,.sel:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  .sel{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A93A0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:30px;cursor:pointer;}
+  .flbl{font-size:12px;font-weight:600;color:var(--text-1);margin:14px 0 6px;display:flex;align-items:center;justify-content:space-between;gap:6px;}
+  .flbl:first-child{margin-top:0;}
+  .hint{font-size:11px;color:var(--text-2);margin-top:4px;line-height:1.4;}
+  .eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:none;background:transparent;color:var(--text-2);cursor:pointer;font-size:14px;padding:4px;line-height:1;}
+  .eye:hover{color:var(--text-0);}
+
+  /* Provider two-pane */
+  .pv-wrap{display:flex;gap:14px;}
+  .pv-list{width:190px;flex:0 0 190px;display:flex;flex-direction:column;gap:6px;}
+  .pv-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;border:1px solid transparent;cursor:pointer;font-size:12.5px;color:var(--text-0);}
+  .pv-item:hover{background:var(--bg-4);}
+  .pv-item.active{background:var(--bg-4);border-color:var(--border);}
+  .pv-item .pi{width:26px;height:26px;border-radius:7px;background:var(--bg-5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:var(--text-1);flex:0 0 26px;}
+  .pv-item .pn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .pv-add{margin-top:4px;border:1px dashed var(--border);background:transparent;color:var(--text-1);justify-content:center;}
+  .pv-add:hover{background:var(--bg-4);color:var(--text-0);}
+  .pv-edit{flex:1;min-width:0;}
+  .pv-actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+  .pv-actions .btn{flex:1;justify-content:center;min-width:90px;}
+
+  /* status dots */
+  .dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;display:inline-block;}
+  .dot.ok{background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.16);}
+  .dot.warn{background:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,.16);}
+  .dot.err{background:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.16);}
+  .dot-txt{font-size:11px;color:var(--text-2);}
+
+  /* model chips editor */
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:20px;background:var(--bg-4);border:1px solid var(--border);font-size:11.5px;font-family:var(--mono);color:var(--text-0);}
+  .chip .x{cursor:pointer;color:var(--text-2);font-size:15px;line-height:1;font-family:var(--sans);}
+  .chip .x:hover{color:#ef4444;}
+  .chip-add{display:flex;gap:6px;margin-top:8px;}
+  .chip-add .inp{flex:1;min-width:120px;}
+
+  /* thinking level cards */
+  .think-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;}
+  .think-card{border:1px solid var(--border);border-radius:10px;padding:11px 8px;text-align:center;cursor:pointer;background:var(--bg-1);transition:.12s;}
+  .think-card:hover{border-color:var(--accent);}
+  .think-card.active{border-color:var(--accent);background:var(--accent-soft);}
+  .think-card .tl{font-weight:700;font-size:13px;color:var(--text-0);}
+  .think-card .ts{font-size:10.5px;color:var(--text-2);margin-top:3px;}
+
+  /* agent tabs for model assignment */
+  .agent-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2px;}
+  .agent-tab{padding:6px 12px;border-radius:20px;border:1px solid var(--border);font-size:12px;cursor:pointer;background:var(--bg-1);color:var(--text-1);}
+  .agent-tab:hover{border-color:var(--accent);}
+  .agent-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .row2{display:flex;gap:10px;}
+  .row2>*{flex:1;min-width:0;}
 
   .drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:94vw;background:var(--bg-2);border-left:1px solid var(--border);box-shadow:var(--shadow-md);transform:translateX(100%);transition:transform .2s ease;z-index:51;display:flex;flex-direction:column;}
   .drawer.open{transform:none;}
@@ -346,6 +401,12 @@
   .toast.ok .ic{background:var(--green);} .toast.warn .ic{background:var(--amber);} .toast.info .ic{background:var(--accent);}
   @keyframes toastIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
   .detail-clickable{cursor:pointer;}
+
+  /* ===== Panel collapse ===== */
+  body.left-collapsed .nav{display:none;}
+  body.right-collapsed .ctx{display:none;}
+  .rbtn.collapsed svg{transform:scaleX(-1);}
+</style>
 
 </head>
 <body>
@@ -393,6 +454,9 @@
     <button class="icon-btn" id="themeBtn" title="切换主题">
       <svg id="themeIcon" viewBox="0 0 24 24" fill="none"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
     </button>
+    <button class="icon-btn" id="rightToggle" title="收起 / 展开上下文面板">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M15 4v16" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
     <button class="icon-btn" id="settingsBtn" title="设置">
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.6 1.6 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.6 1.6 0 00-2.7 1.1V21a2 2 0 11-4 0v-.1A1.6 1.6 0 005 19.4l-.1.1a2 2 0 11-2.8-2.8l.1-.1A1.6 1.6 0 003 14a2 2 0 110-4 1.6 1.6 0 00-1.1-2.7L1.8 7.2a2 2 0 112.8-2.8l.1.1A1.6 1.6 0 009 3.6V3a2 2 0 114 0v.1A1.6 1.6 0 0019 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
@@ -401,6 +465,10 @@
   <div class="body">
     <!-- Activity rail -->
     <div class="rail">
+      <button class="rbtn" id="leftToggle" title="收起 / 展开左侧导航">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M11 5l-6 7 6 7M18 5l-6 7 6 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="rsep"></div>
       <button class="rbtn active" data-view="workbench" title="工作台">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H7l-3 3V5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
       </button>
@@ -736,13 +804,16 @@ export async function refresh(session){
       <!-- ===== Plugins view ===== -->
       <div class="view" id="view-plugins">
         <div class="listwrap">
-          <div class="list-h"><h2>插件</h2><span class="sub">显式启用的上下文，不等同于工具授权</span></div>
+          <div class="list-h"><h2>插件</h2><span class="sub">显式启用的上下文，不等同于工具授权</span><div class="sp"></div><button class="btn primary sm" id="syncPluginsBtn"><svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M21 12a9 9 0 11-3-6.7M21 4v4h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 解析本地插件</button></div>
           <div class="grid">
             <div class="card"><div class="ch"><div class="ti">Git 感知<small>git-plugin</small></div><span class="toggle on" onclick="this.classList.toggle('on')"><i></i></span></div><div class="desc">读取仓库状态、差异与分支，供 Agent 感知版本上下文。</div></div>
             <div class="card"><div class="ch"><div class="ti">项目感知<small>project-sense</small></div><span class="toggle on" onclick="this.classList.toggle('on')"><i></i></span></div><div class="desc">扫描必要配置与常见目录，缓存于用户目录。</div></div>
             <div class="card"><div class="ch"><div class="ti">上下文压缩<small>context-compress</small></div><span class="toggle on" onclick="this.classList.toggle('on')"><i></i></span></div><div class="desc">运行时自动/手动压缩历史，节省 token。</div></div>
             <div class="card"><div class="ch"><div class="ti">CI 通知<small>ci-notify</small></div><span class="toggle" onclick="this.classList.toggle('on')"><i></i></span></div><div class="desc">将流水线结果回写 WorkEvent 时间线。</div></div>
           </div>
+          <div class="sec-title" id="localPluginsTitle" style="display:none;margin-top:22px">本地发现的插件</div>
+          <div class="grid" id="localPlugins" style="display:none"></div>
+          <p style="color:var(--text-2);font-size:12px;margin-top:14px;">插件来源：扫描用户目录下的插件包（如 <span style="font-family:var(--mono)">~/.agentbuddy/plugins</span>），解析 manifest 后列出；启用即注入上下文，但<b style="color:var(--text-0)">插件上下文 ≠ 工具授权</b>。</p>
         </div>
       </div>
 
@@ -1051,6 +1122,466 @@ export async function refresh(session){
   // Thinking toggle
   const thinkBtn = document.getElementById('thinkBtn');
   thinkBtn.addEventListener('click',()=>thinkBtn.classList.toggle('on'));
+
+  // Left / right panel collapse (persisted)
+  const leftToggle=document.getElementById('leftToggle');
+  const rightToggle=document.getElementById('rightToggle');
+  if(localStorage.getItem('ab-left')==='true'){document.body.classList.add('left-collapsed');leftToggle.classList.add('collapsed');}
+  if(localStorage.getItem('ab-right')==='true')document.body.classList.add('right-collapsed');
+  leftToggle.addEventListener('click',()=>{
+    const c=document.body.classList.toggle('left-collapsed');
+    leftToggle.classList.toggle('collapsed',c);
+    localStorage.setItem('ab-left',c);
+  });
+  rightToggle.addEventListener('click',()=>{
+    const c=document.body.classList.toggle('right-collapsed');
+    localStorage.setItem('ab-right',c);
+  });
+</script>
+
+<!-- ===== Settings modal ===== -->
+<div class="overlay" id="settingsOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div><h3>设置</h3><div class="sub">全局偏好与隐私</div></div>
+      <button class="icon-btn x" data-close="settingsOverlay"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="modal-tabs">
+      <div class="modal-tab active" data-mtab="appear">外观</div>
+      <div class="modal-tab" data-mtab="shortcuts">快捷键</div>
+      <div class="modal-tab" data-mtab="provider">供应商</div>
+      <div class="modal-tab" data-mtab="model">模型分配</div>
+      <div class="modal-tab" data-mtab="privacy">隐私与加密</div>
+    </div>
+    <div class="modal-body">
+      <div class="mpanel" data-mpanel="appear">
+        <div class="field"><div class="fl">主题<small>浅色为默认，深色可切换</small></div>
+          <div class="seg" id="themeSeg"><button data-theme-set="light" class="active">浅色</button><button data-theme-set="dark">深色</button></div></div>
+        <div class="field"><div class="fl">语言<small>即时生效，持久化到本地</small></div>
+          <div class="seg"><button class="active">中文</button><button>English</button></div></div>
+        <div class="field"><div class="fl">紧凑模式<small>减小间距与字号</small></div>
+          <span class="toggle" onclick="this.classList.toggle('on')"><i></i></span></div>
+        <div class="field"><div class="fl">发送即运行<small>回车直接执行指令</small></div>
+          <span class="toggle on" onclick="this.classList.toggle('on')"><i></i></span></div>
+      </div>
+      <div class="mpanel hidden" data-mpanel="shortcuts">
+        <div class="shortcut"><span>命令面板</span><span><span class="kbd">Ctrl</span> <span class="kbd">⇧</span> <span class="kbd">P</span></span></div>
+        <div class="shortcut"><span>切换主题</span><span><span class="kbd">Ctrl</span> <span class="kbd">⌘</span> <span class="kbd">T</span></span></div>
+        <div class="shortcut"><span>聚焦 Composer</span><span><span class="kbd">Ctrl</span> <span class="kbd">/</span></span></div>
+        <div class="shortcut"><span>接受 hunk</span><span><span class="kbd">Ctrl</span> <span class="kbd">⌫</span></span></div>
+        <div class="shortcut"><span>回滚 Checkpoint</span><span><span class="kbd">Ctrl</span> <span class="kbd">Z</span></span></div>
+      </div>
+      <div class="mpanel hidden" data-mpanel="privacy">
+        <div class="field"><div class="fl">本地会话加密<small>主进程 AES-256，密钥不落盘明文</small></div>
+          <span class="toggle on" onclick="this.classList.toggle('on')"><i></i></span></div>
+        <div class="field"><div class="fl">API Key 仅存主进程<small>renderer 不可见</small></div>
+          <span class="toggle on" onclick="this.classList.toggle('on')"><i></i></span></div>
+        <div class="field"><div class="fl">项目摘要脱敏<small>隐藏脚本中的敏感字段</small></div>
+          <span class="toggle on" onclick="this.classList.toggle('on')"><i></i></span></div>
+        <p style="color:var(--text-2);font-size:12px;margin-top:12px;">所有密钥不进入 Git / 日志 / renderer；插件上下文不等同于工具授权。</p>
+      </div>
+
+      <!-- ===== Provider management (F1.7) ===== -->
+      <div class="mpanel hidden" data-mpanel="provider">
+        <div class="pv-wrap">
+          <div class="pv-list" id="pvList"></div>
+          <div class="pv-edit">
+            <div class="flbl">类型（Type）</div>
+            <select class="sel" id="pvType">
+              <option value="openai">OpenAI</option>
+              <option value="anthropic">Anthropic</option>
+              <option value="deepseek">DeepSeek</option>
+              <option value="gemini">Gemini</option>
+              <option value="mistral">Mistral</option>
+              <option value="openrouter">OpenRouter</option>
+              <option value="custom">自定义 / Custom</option>
+            </select>
+            <div class="flbl">名称</div>
+            <input class="inp" id="pvName" value="OpenAI">
+            <div class="flbl">API Key <span class="dot-txt">主进程存储，renderer 不可见</span></div>
+            <div style="position:relative">
+              <input class="inp" type="password" id="pvKey" value="sk-proj-••••••••••••••••••">
+              <button class="eye" title="显示 / 隐藏" onclick="toggleKey(this)">👁</button>
+            </div>
+            <div class="flbl">Base URL</div>
+            <input class="inp" id="pvUrl" value="https://api.openai.com/v1">
+            <div class="flbl">模型列表 <span class="dot-txt">回车或点 + 添加</span></div>
+            <div class="chips" id="pvModels"></div>
+            <div class="chip-add">
+              <input class="inp" id="pvModelInput" placeholder="如 gpt-4o" onkeydown="if(event.key==='Enter')addPvModel()">
+              <button class="btn sm" onclick="addPvModel()">+</button>
+            </div>
+            <div class="pv-actions">
+              <button class="btn" onclick="showToast('已触发自动探测','ok')">自动探测</button>
+              <button class="btn" onclick="showToast('连接测试通过','ok')">测试连接</button>
+              <button class="btn primary" onclick="showToast('供应商已保存','ok')">保存</button>
+              <button class="btn" style="color:#ef4444" onclick="showToast('已删除供应商','warn')">删除</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Model assignment (F1.8) ===== -->
+      <div class="mpanel hidden" data-mpanel="model">
+        <div class="flbl">智能体（Agent）</div>
+        <div class="agent-tabs" id="agentTabs"></div>
+
+        <div class="flbl">聊天模型（Chat Model）</div>
+        <div class="row2">
+          <div><div class="hint" style="margin:0 0 5px">供应商</div><select class="sel" id="maChatP"></select></div>
+          <div><div class="hint" style="margin:0 0 5px">模型</div><select class="sel" id="maChatM"></select></div>
+        </div>
+
+        <div class="field" style="padding:11px 0;border-bottom:1px solid var(--divider)">
+          <div class="fl">启用视觉模型<small>处理图片 / 截图输入</small></div>
+          <span class="toggle on" id="maVisionToggle" onclick="toggleVision(this)"><i></i></span>
+        </div>
+        <div id="maVisionBox">
+          <div class="row2" style="margin-top:10px">
+            <div><div class="hint" style="margin:0 0 5px">视觉供应商</div><select class="sel" id="maVisionP"></select></div>
+            <div><div class="hint" style="margin:0 0 5px">视觉模型</div><select class="sel" id="maVisionM"></select></div>
+          </div>
+        </div>
+
+        <div class="flbl" style="margin-top:16px">行为（Behavior）</div>
+        <div class="field"><div class="fl">图片输入自动切换视觉模型<small>autoSwitchOnImage</small></div><span class="toggle on" id="maAutoSwitch" onclick="this.classList.toggle('on')"><i></i></span></div>
+        <div class="field"><div class="fl">视觉不可用时回退聊天模型<small>fallbackToChatForImages</small></div><span class="toggle" id="maFallback" onclick="this.classList.toggle('on')"><i></i></span></div>
+        <div class="field"><div class="fl">Provider 出错自动重试<small>retryOnProviderError</small></div><span class="toggle on" id="maRetry" onclick="this.classList.toggle('on')"><i></i></span></div>
+
+        <div class="flbl" style="margin-top:16px">思考深度（Thinking Level）</div>
+        <div class="think-grid" id="maThink">
+          <div class="think-card" data-think="off"><div class="tl">关闭</div><div class="ts">最快</div></div>
+          <div class="think-card" data-think="low"><div class="tl">低</div><div class="ts">省 token</div></div>
+          <div class="think-card active" data-think="medium"><div class="tl">中</div><div class="ts">均衡</div></div>
+          <div class="think-card" data-think="high"><div class="tl">高</div><div class="ts">最强推理</div></div>
+        </div>
+
+        <div class="pv-actions">
+          <button class="btn" onclick="showToast('已重置为默认分配','ok')">重置</button>
+          <button class="btn primary" onclick="showToast('模型分配已保存','ok')">保存</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close="settingsOverlay">取消</button>
+      <button class="btn primary" data-close="settingsOverlay" onclick="showToast('设置已保存','ok')">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Agent detail drawer ===== -->
+<div class="overlay" id="agentOverlay">
+  <div class="drawer" id="agentDrawer">
+    <div class="drawer-head">
+      <div><h3 id="agentName">Agent</h3><div id="agentRole" style="font-size:12px;color:var(--text-2)"></div></div>
+      <button class="icon-btn x" data-close="agentOverlay"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="drawer-body" id="agentBody"></div>
+  </div>
+</div>
+
+<!-- ===== KB detail drawer ===== -->
+<div class="overlay" id="kbOverlay">
+  <div class="drawer" id="kbDrawer">
+    <div class="drawer-head">
+      <div><h3 id="kbName">知识库</h3><div id="kbSub" style="font-size:12px;color:var(--text-2)"></div></div>
+      <button class="icon-btn x" data-close="kbOverlay"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="drawer-body" id="kbBody"></div>
+  </div>
+</div>
+
+<!-- ===== MCP detail drawer ===== -->
+<div class="overlay" id="mcpOverlay">
+  <div class="drawer" id="mcpDrawer">
+    <div class="drawer-head">
+      <div><h3 id="mcpName">MCP</h3><div id="mcpSub" style="font-size:12px;color:var(--text-2)"></div></div>
+      <button class="icon-btn x" data-close="mcpOverlay"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="drawer-body" id="mcpBody"></div>
+  </div>
+</div>
+
+<!-- ===== Command palette ===== -->
+<div class="palette" id="palette">
+  <div class="palette-input">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="paletteInput" placeholder="输入命令或搜索…" autocomplete="off" />
+    <span class="kbd">Esc</span>
+  </div>
+  <div class="palette-list" id="paletteList"></div>
+</div>
+
+<!-- ===== Toasts ===== -->
+<div class="toasts" id="toasts"></div>
+
+<script>
+  // Toast
+  function showToast(msg,type){
+    const t=document.createElement('div');
+    t.className='toast '+(type||'info');
+    const ic=type==='ok'?'✓':type==='warn'?'!':'i';
+    t.innerHTML='<span class="ic">'+ic+'</span><span>'+msg+'</span>';
+    document.getElementById('toasts').appendChild(t);
+    setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(8px)';setTimeout(()=>t.remove(),200);},2200);
+  }
+
+  // Overlays: close handlers
+  document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>{
+    const o=document.getElementById(b.dataset.close); if(o)o.classList.remove('open');
+  }));
+  document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+
+  // Settings modal
+  const settingsOverlay=document.getElementById('settingsOverlay');
+  document.getElementById('settingsBtn').addEventListener('click',()=>settingsOverlay.classList.add('open'));
+  document.querySelectorAll('.modal-tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.modal-tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.mpanel').forEach(x=>x.classList.add('hidden'));
+    t.classList.add('active');
+    document.querySelector('[data-mpanel="'+t.dataset.mtab+'"]').classList.remove('hidden');
+  }));
+  document.querySelectorAll('#themeSeg [data-theme-set]').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#themeSeg [data-theme-set]').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const dark=b.dataset.themeSet==='dark';
+    document.body.setAttribute('data-theme',dark?'dark':'light');
+    themeIcon.innerHTML=dark?moon:sun;
+  }));
+
+  // ===== Settings: Provider management (F1.7) =====
+  const providerData={
+    openai:{name:'OpenAI',type:'openai',status:'ok',url:'https://api.openai.com/v1',models:['gpt-4o','gpt-4o-mini','o3','o4-mini']},
+    anthropic:{name:'Anthropic',type:'anthropic',status:'ok',url:'https://api.anthropic.com',models:['claude-sonnet-4','claude-opus-4.5','claude-haiku-3.5']},
+    deepseek:{name:'DeepSeek',type:'deepseek',status:'warn',url:'https://api.deepseek.com',models:['deepseek-chat','deepseek-reasoner']},
+    gemini:{name:'Gemini',type:'gemini',status:'err',url:'https://generativelanguage.googleapis.com',models:['gemini-2.5-pro','gemini-2.5-flash']},
+    ollama:{name:'Ollama 本地',type:'custom',status:'ok',url:'http://localhost:11434/v1',models:['qwen2.5','llama3.1']}
+  };
+  let pvCurrent=null, pvModelsArr=[];
+  function renderProviderList(){
+    const box=document.getElementById('pvList');
+    box.innerHTML=Object.keys(providerData).map(k=>{
+      const p=providerData[k];
+      return '<div class="pv-item'+(k===pvCurrent?' active':'')+'" data-pk="'+k+'" onclick="selectProvider(\''+k+'\')">'
+        +'<span class="pi">'+p.name[0]+'</span>'
+        +'<span class="pn">'+p.name+'</span>'
+        +'<span class="dot '+p.status+'"></span></div>';
+    }).join('')+'<button class="btn pv-add" onclick="showToast(\'新增供应商\',\'ok\')">+ 新增供应商</button>';
+  }
+  function selectProvider(k){
+    pvCurrent=k; const p=providerData[k];
+    document.getElementById('pvType').value=p.type;
+    document.getElementById('pvName').value=p.name;
+    document.getElementById('pvUrl').value=p.url;
+    pvModelsArr=p.models.slice();
+    renderProviderList();
+    renderPvModels();
+  }
+  function renderPvModels(){
+    document.getElementById('pvModels').innerHTML=pvModelsArr.map((m,i)=>'<span class="chip"><b>'+m+'</b><span class="x" onclick="removePvModel('+i+')">×</span></span>').join('');
+  }
+  function addPvModel(){
+    const inp=document.getElementById('pvModelInput'); const v=inp.value.trim();
+    if(!v)return; pvModelsArr.push(v); inp.value=''; renderPvModels();
+  }
+  function removePvModel(i){pvModelsArr.splice(i,1); renderPvModels();}
+  function toggleKey(btn){
+    const inp=btn.parentElement.querySelector('input');
+    inp.type=inp.type==='password'?'text':'password';
+  }
+  renderProviderList(); selectProvider('openai');
+
+  // ===== Settings: Model assignment (F1.8) =====
+  const agentModels={
+    'Backend Dev':{chatP:'anthropic',chatM:'claude-sonnet-4',visionOn:true,visionP:'openai',visionM:'gpt-4o',think:'medium',autoSwitch:true,fallback:false,retry:true},
+    'Frontend Dev':{chatP:'anthropic',chatM:'claude-sonnet-4',visionOn:false,visionP:'openai',visionM:'gpt-4o',think:'low',autoSwitch:true,fallback:false,retry:true},
+    'Test Engineer':{chatP:'openai',chatM:'gpt-4o',visionOn:true,visionP:'openai',visionM:'gpt-4o-mini',think:'medium',autoSwitch:true,fallback:true,retry:true},
+    'Code Reviewer':{chatP:'anthropic',chatM:'claude-opus-4.5',visionOn:false,visionP:'anthropic',visionM:'claude-sonnet-4',think:'high',autoSwitch:false,fallback:false,retry:true}
+  };
+  let maCurrent='Backend Dev';
+  function fillProviderSelect(sel){
+    sel.innerHTML=Object.keys(providerData).map(k=>'<option value="'+k+'">'+providerData[k].name+'</option>').join('');
+  }
+  function fillModelSelect(sel,pk){
+    const arr=providerData[pk].models;
+    sel.innerHTML=arr.map(m=>'<option value="'+m+'">'+m+'</option>').join('');
+  }
+  function renderAgentTabs(){
+    document.getElementById('agentTabs').innerHTML=Object.keys(agentModels).map(a=>'<div class="agent-tab'+(a===maCurrent?' active':'')+'" data-at="'+a+'" onclick="selectAgent(\''+a+'\')">'+a+'</div>').join('');
+  }
+  function selectAgent(a){
+    maCurrent=a; const d=agentModels[a];
+    document.getElementById('maChatP').value=d.chatP; fillModelSelect(document.getElementById('maChatM'),d.chatP); document.getElementById('maChatM').value=d.chatM;
+    const vt=document.getElementById('maVisionToggle'); vt.classList.toggle('on',d.visionOn); document.getElementById('maVisionBox').style.display=d.visionOn?'block':'none';
+    document.getElementById('maVisionP').value=d.visionP; fillModelSelect(document.getElementById('maVisionM'),d.visionP); document.getElementById('maVisionM').value=d.visionM;
+    document.getElementById('maAutoSwitch').classList.toggle('on',d.autoSwitch);
+    document.getElementById('maFallback').classList.toggle('on',d.fallback);
+    document.getElementById('maRetry').classList.toggle('on',d.retry);
+    document.querySelectorAll('#maThink .think-card').forEach(c=>c.classList.toggle('active',c.dataset.think===d.think));
+    renderAgentTabs();
+  }
+  function toggleVision(el){
+    const on=el.classList.toggle('on');
+    document.getElementById('maVisionBox').style.display=on?'block':'none';
+  }
+  document.getElementById('maChatP').addEventListener('change',e=>fillModelSelect(document.getElementById('maChatM'),e.target.value));
+  document.getElementById('maVisionP').addEventListener('change',e=>fillModelSelect(document.getElementById('maVisionM'),e.target.value));
+  document.querySelectorAll('#maThink .think-card').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('#maThink .think-card').forEach(x=>x.classList.remove('active')); c.classList.add('active');
+  }));
+  fillProviderSelect(document.getElementById('maChatP'));
+  fillProviderSelect(document.getElementById('maVisionP'));
+  renderAgentTabs(); selectAgent('Backend Dev');
+
+  // Agent detail drawer
+  const agentData={
+    'Backend Dev':{role:'后端开发 Agent',model:'Claude Sonnet 4',tools:18,activity:2,perms:[['read','auto'],['write','confirm'],['exec','confirm'],['test','auto']],desc:'默认模型 Claude Sonnet 4 · 工具 18（读/写/命令/测试）· 权限已授权。'},
+    'Frontend Dev':{role:'前端开发 Agent',model:'Claude Sonnet 4',tools:14,activity:0,perms:[['read','auto'],['write','confirm'],['exec','confirm'],['test','auto']],desc:'默认模型 Claude Sonnet 4 · 工具 14 · 权限已授权。'},
+    'Test Engineer':{role:'测试 Agent',model:'Claude Sonnet 4',tools:9,activity:1,perms:[['read','auto'],['write','confirm'],['exec','confirm'],['test','auto']],desc:'默认模型 Claude Sonnet 4 · 工具 9 · 权限已授权。'},
+    'Code Reviewer':{role:'审查 Agent',model:'Claude Opus 4.5',tools:6,activity:0,perms:[['read','auto'],['write','deny'],['exec','deny'],['test','deny']],desc:'默认模型 Claude Opus 4.5 · 工具 6（只读）· 权限已授权。'}
+  };
+  function openAgent(name){
+    const d=agentData[name];
+    const nameEl=document.getElementById('agentName');
+    const roleEl=document.getElementById('agentRole');
+    const bodyEl=document.getElementById('agentBody');
+    if(!d){
+      nameEl.textContent=name||'智能体';
+      roleEl.textContent='';
+      bodyEl.innerHTML='<p style="color:var(--text-2);font-size:12.5px;">该 Agent 的详细配置尚未录入示例数据。</p>';
+      document.getElementById('agentOverlay').classList.add('open');
+      return;
+    }
+    nameEl.textContent=name;
+    roleEl.textContent=d.role;
+    const permsHtml=d.perms.map(p=>'<div class="perm-row"><span>'+p[0]+'</span><span class="lv '+p[1]+'">'+(p[1]==='auto'?'自动放行':p[1]==='confirm'?'需确认':'禁止')+'</span></div>').join('');
+    bodyEl.innerHTML=
+      '<p style="color:var(--text-2);font-size:12.5px;margin-bottom:14px;">'+d.desc+'</p>'+
+      '<div class="sec-title">配置</div>'+
+      '<div class="kv"><span class="k">默认模型</span><span class="v">'+d.model+'</span></div>'+
+      '<div class="kv"><span class="k">工具数</span><span class="v">'+d.tools+'</span></div>'+
+      '<div class="kv"><span class="k">活动会话</span><span class="v">'+d.activity+'</span></div>'+
+      '<div class="sec-title" style="margin-top:18px;">权限矩阵（白名单）</div>'+permsHtml+
+      '<div style="margin-top:16px;display:flex;gap:8px"><button class="btn primary" style="flex:1;justify-content:center" onclick="showToast(\'已保存 Agent 配置\',\'ok\')">保存配置</button><button class="btn" style="flex:1;justify-content:center">编辑提示词</button></div>';
+    document.getElementById('agentOverlay').classList.add('open');
+  }
+  document.querySelectorAll('#view-agents .card').forEach(c=>{
+    c.classList.add('detail-clickable');
+    c.addEventListener('click',()=>{
+      const ti=c.querySelector('.ti');
+      const name=(ti&&ti.childNodes[0]?ti.childNodes[0].nodeValue:ti?ti.textContent:'').trim();
+      openAgent(name);
+    });
+  });
+
+  // KB detail drawer
+  const kbData={
+    '项目文档':{syncing:true,docs:[['AGENTS.md','指南'],['features/F1.7-provider.md','规格'],['agent-workbuddy-v2.md','方向'],['DEVELOPMENT.md','流程']],retrieve:'ContextBudgetManager 分配系统 / 项目 / Git / 工具 / 历史 token；超出回复预留时自动摘要压缩历史…'},
+    'API 手册':{syncing:false,docs:[['provider-sdk.md','SDK'],['mcp-protocol.md','协议'],['electron-ipc.md','IPC']],retrieve:'preload 通过 contextIsolation + 白名单暴露能力，renderer 无法直接调用 Node…'},
+    '个人笔记':{syncing:false,docs:[['设计决策-2026.md','笔记'],['踩坑记录.md','笔记'],['复盘-Q2.md','笔记']],retrieve:'Checkpoint 在落盘前创建，hunk 审查状态由主进程按相对路径恢复…'}
+  };
+  function openKb(name){
+    const d=kbData[name]; if(!d)return;
+    document.getElementById('kbName').textContent=name;
+    document.getElementById('kbSub').textContent=d.syncing?'自动同步中 · 增量重建':'手动维护';
+    const docsHtml=d.docs.map(x=>'<div class="doc-row"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M6 3h9l4 4v14H6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="dn">'+x[0]+'</span><span class="dm">'+x[1]+'</span></div>').join('');
+    document.getElementById('kbBody').innerHTML=
+      '<div class="sec-title">文档（'+d.docs.length+'）</div>'+docsHtml+
+      '<div class="sec-title" style="margin-top:18px;">检索测试（RAG）</div>'+
+      '<div class="retrieve"><div class="rq"><b>查询：</b>如何为 Agent 配置上下文预算？</div>'+
+      '<div class="chunk">'+d.retrieve+'<span class="src">相似度 0.91 · '+d.docs[1][0]+'</span></div></div>';
+    document.getElementById('kbOverlay').classList.add('open');
+  }
+  document.querySelectorAll('#view-kb .card').forEach(c=>{
+    c.classList.add('detail-clickable');
+    c.addEventListener('click',()=>{const ti=c.querySelector('.ti');openKb(ti.childNodes[0].nodeValue.trim());});
+  });
+
+  // MCP detail drawer
+  const mcpData={
+    'filesystem':{tools:['read_file','write_file','list_dir','move','search'],transport:'stdio'},
+    'github':{tools:['create_pr','list_pr','get_diff','merge','comment','issues'],transport:'stdio'},
+    'postgres':{tools:['query','schema','explain'],transport:'sse'},
+    'slack':{tools:['post_message','upload','channels'],transport:'http'}
+  };
+  function openMcp(name){
+    const d=mcpData[name]; if(!d)return;
+    document.getElementById('mcpName').textContent=name;
+    document.getElementById('mcpSub').textContent='传输 '+d.transport+' · 工具 '+d.tools.length;
+    document.getElementById('mcpBody').innerHTML='<div class="sec-title">已注册工具（'+d.tools.length+'）</div>'+
+      d.tools.map(t=>'<div class="kv"><span class="k" style="font-family:var(--mono)">'+t+'</span><span class="v" style="font-size:11px;color:var(--green)">可用</span></div>').join('');
+    document.getElementById('mcpOverlay').classList.add('open');
+  }
+  document.querySelectorAll('#view-mcp tbody tr').forEach(r=>{
+    r.style.cursor='pointer';
+    r.addEventListener('click',()=>{const b=r.querySelector('td b');if(b)openMcp(b.textContent.trim());});
+  });
+
+  // Plugin toggle toast
+  document.querySelectorAll('#view-plugins .toggle').forEach(t=>t.addEventListener('click',()=>{
+    showToast(t.classList.contains('on')?'已启用插件':'已关闭插件','ok');
+  }));
+
+  // Resolve / sync local plugins
+  const localPlugins=[
+    {name:'codegraph-sync',desc:'将代码图谱索引变化推送为上下文。',from:'~/.agentbuddy/plugins/codegraph-sync'},
+    {name:'jest-runner',desc:'本地测试运行器适配，回写结果到时间线。',from:'项目 .agentbuddy/plugins'},
+    {name:'changelog-gen',desc:'根据提交历史生成变更日志上下文。',from:'~/.agentbuddy/plugins/changelog-gen'}
+  ];
+  document.getElementById('syncPluginsBtn').addEventListener('click',()=>{
+    const title=document.getElementById('localPluginsTitle');
+    const box=document.getElementById('localPlugins');
+    title.style.display=''; box.style.display='';
+    box.innerHTML=localPlugins.map(p=>'<div class="card"><div class="ch"><div class="ti">'+p.name+'<small>local</small></div><span class="toggle" onclick="this.classList.toggle(\'on\');showToast(this.classList.contains(\'on\')?\'已启用本地插件\':\'已关闭本地插件\',\'ok\')"><i></i></span></div><div class="desc">'+p.desc+'</div><div class="cf"><span class="mini" style="font-family:var(--mono)">'+p.from+'</span><span class="sp"></span></div></div>').join('');
+    showToast('已解析本地插件：发现 '+localPlugins.length+' 个','ok');
+  });
+
+  // Generic create toasts for header buttons
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b||!b.classList.contains('primary'))return;
+    const t=b.textContent.trim();
+    if(/添加|新建|导入/.test(t)) showToast('已创建：'+t,'ok');
+  });
+
+  // Command palette
+  const palette=document.getElementById('palette');
+  const paletteInput=document.getElementById('paletteInput');
+  const paletteList=document.getElementById('paletteList');
+  const cmdIcon='<svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  const commands=[
+    {name:'切换到工作台',tag:'视图',run:()=>switchView('workbench')},
+    {name:'打开会话列表',tag:'视图',run:()=>switchView('sessions')},
+    {name:'打开智能体',tag:'视图',run:()=>switchView('agents')},
+    {name:'打开知识库',tag:'视图',run:()=>switchView('kb')},
+    {name:'打开 MCP 工具',tag:'视图',run:()=>switchView('mcp')},
+    {name:'打开定时工作流',tag:'视图',run:()=>switchView('workflow')},
+    {name:'打开消息网关',tag:'视图',run:()=>switchView('gateway')},
+    {name:'打开代码图谱',tag:'视图',run:()=>switchView('graph')},
+    {name:'打开设置',tag:'设置',run:()=>settingsOverlay.classList.add('open')},
+    {name:'切换主题（浅/深）',tag:'设置',run:()=>themeBtn.click()},
+    {name:'暂停 / 继续运行',tag:'会话',run:()=>runBtn.click()},
+    {name:'新建任务',tag:'会话',run:()=>showToast('已新建任务','ok')}
+  ];
+  let cmdIdx=0,cmdFiltered=commands.slice();
+  function renderPalette(){
+    const q=paletteInput.value.trim().toLowerCase();
+    cmdFiltered=commands.filter(c=>c.name.toLowerCase().includes(q));
+    if(cmdIdx>=cmdFiltered.length)cmdIdx=0;
+    paletteList.innerHTML=cmdFiltered.map((c,i)=>'<div class="pc'+(i===cmdIdx?' active':'')+'" data-i="'+i+'">'+cmdIcon+'<span>'+c.name+'</span><span class="tag">'+c.tag+'</span></div>').join('')||'<div class="pc" style="color:var(--text-3)">无匹配命令</div>';
+    paletteList.querySelectorAll('.pc[data-i]').forEach(el=>el.addEventListener('click',()=>{cmdIdx=+el.dataset.i;runCmd();}));
+  }
+  function runCmd(){const c=cmdFiltered[cmdIdx];if(c){c.run();closePalette();}}
+  function openPalette(){palette.classList.add('open');paletteInput.value='';cmdIdx=0;renderPalette();setTimeout(()=>paletteInput.focus(),20);}
+  function closePalette(){palette.classList.remove('open');}
+  document.addEventListener('keydown',e=>{
+    if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key.toLowerCase()==='p'){e.preventDefault();palette.classList.contains('open')?closePalette():openPalette();return;}
+    if(!palette.classList.contains('open'))return;
+    if(e.key==='Escape')closePalette();
+    else if(e.key==='ArrowDown'){e.preventDefault();cmdIdx=Math.min(cmdIdx+1,cmdFiltered.length-1);renderPalette();}
+    else if(e.key==='ArrowUp'){e.preventDefault();cmdIdx=Math.max(cmdIdx-1,0);renderPalette();}
+    else if(e.key==='Enter'){e.preventDefault();runCmd();}
+  });
+  paletteInput.addEventListener('input',()=>{cmdIdx=0;renderPalette();});
 </script>
 </body>
 </html>
