@@ -1,0 +1,39 @@
+# Electron Builder 打包配置（Agent Buddy）
+# 注意：agent-buddy/.gitignore 忽略了 out/，而打包必须包含 out/，故关闭 useGitIgnore 并显式声明要打包的内容
+
+appId: com.agentbuddy.app
+productName: Agent Buddy
+copyright: Copyright © 2026 The Agent Buddy Authors
+
+# 不读取 .gitignore 来排除文件，避免 out/ 与 node_modules 被误排除
+useGitIgnore: false
+
+directories:
+  output: release
+
+# 仅打包构建产物与运行所需资源；生产依赖由 electron-builder 自动从 node_modules 裁剪（剔除 devDependencies）
+files:
+  - out
+  - package.json
+  - resources
+  - node_modules
+
+asar: true
+
+mac:
+  target:
+    - target: dmg
+      arch:
+        - arm64
+        - x64
+  category: public.app-category.developer-tools
+
+win:
+  target:
+    - nsis
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Development

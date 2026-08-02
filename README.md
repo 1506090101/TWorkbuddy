@@ -61,6 +61,10 @@ npm run dev
 | `npm run typecheck` | 类型检查（node + web 两部分） |
 | `npm run lint` | ESLint 检查 |
 | `npm run format` | Prettier 格式化 |
+| `npm run dist` | 构建并打包当前平台安装包（输出到 `agent-buddy/release/`） |
+| `npm run dist:mac` | 仅打包 macOS（dmg，含 arm64 / x64） |
+| `npm run dist:win` | 仅打包 Windows（nsis） |
+| `npm run dist:linux` | 仅打包 Linux（AppImage / deb） |
 
 ## 开发规范（要点）
 
